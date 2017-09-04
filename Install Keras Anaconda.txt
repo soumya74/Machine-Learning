@@ -1,0 +1,34 @@
+=================SSG_GITHUB================
+How to install Keras and TensorFlow in Anaconda3(Windows):
+===================================================
+1. Install Anaconda3 with Python 3.5
+2. Open Anaconda Prompt in Administrator Mode
+3. To check environment available in Python Anaconda3:
+	conda info -e
+4. --> conda create -n py35_tf_cpu anaconda //use this to create environment
+5. --> conda create -n py35_tf_cpu python=3.5.2 anaconda
+6. --> activate py35_tf_cpu
+   --> deactivate py35_tf_cpu
+   
+   --activate the current environment and then install keras.
+7. check available environments using 
+	conda info -e
+8. install tensorflow now
+	there are two options using cpu, using gpu
+	--install tensorflow using cpu in Windows
+		--> https://www.tensorflow.org/install/install_windows
+		--> pip install --ignore-installed --upgrade tensorflow 
+9. install keras using command
+	--> install keras
+10. Once installation complete open spyder from current command Prompt.
+
+================== ENJOY ==================
+To restart Spyder
+1. Open Anaconda Prompt
+2. --> conda info -e
+3. --> activate py35_tf_cpu (i.e. the tensorflow environment)
+4. --> spyder
+
+================== ENJOY ==================
+Reference : https://www.youtube.com/watch?v=0jCPho6x0RY&t=35s
+=================SSG_GITHUB================
