@@ -19,7 +19,7 @@ How to install Keras and TensorFlow in Anaconda3(Windows):
 		--> https://www.tensorflow.org/install/install_windows
 		--> pip install --ignore-installed --upgrade tensorflow 
 9. install keras using command
-	--> install keras
+	--> pip install keras
 10. Once installation complete open spyder from current command Prompt.
 
 ================== ENJOY ==================
