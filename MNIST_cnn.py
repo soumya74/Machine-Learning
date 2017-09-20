@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Sep 20 14:32:06 2017
-
-@author: soumyas
-"""
-
 from keras.datasets import mnist
 from keras.models import Sequential
 from keras.layers import Dense
@@ -38,7 +31,7 @@ def show_mnistSampleData(X_train):
 def get_model(num_class, input_shape):
     #create model
     model = Sequential()
-    model.add(Conv2D(32, kernel_size = (5, 5), data_format = 'channels_last', input_shape = ( 28, 28, 1)))
+    model.add(Conv2D(32, kernel_size = (5, 5), padding='valid', input_shape = input_shape))
     model.add(MaxPooling2D(2,2))
     model.add(Dropout(0.2))
     model.add(Flatten())
@@ -57,17 +50,10 @@ def get_model(num_class, input_shape):
 #show_mnistSampleData(X_train)
 
 batch_size = 200
-if K.image_data_format() == 'channels_first':
-    X_train = X_train.reshape(X_train.shape[0], 1, 28, 28)
-    X_test = X_test.reshape(X_test.shape[0], 1, 28, 28)
-    input_shape = (1, 28, 28)
-else:
-    X_train = X_train.reshape(X_train.shape[0], 28, 28, 1)
-    X_test = X_test.reshape(X_test.shape[0], 28, 28, 1)
-    input_shape = (28, 28, 1)
 
-X_train = X_train.reshape( X_train.shape[0], 1, 28, 28).astype('float32')
-X_test = X_test.reshape( X_test.shape[0], 1, 28, 28).astype('float32')
+input_shape = (28, 28, 1)
+X_train = X_train.reshape( X_train.shape[0], 28, 28, 1).astype('float32')
+X_test = X_test.reshape( X_test.shape[0], 28, 28, 1).astype('float32')
 X_train = X_train/255
 X_test = X_test/255
 y_train = np_utils.to_categorical( y_train)
