@@ -6,18 +6,8 @@ from keras.layers import Dropout
 from keras.layers.convolutional import Conv2D
 from keras.layers.convolutional import MaxPooling2D
 from keras.utils import np_utils
-from keras.models import model_from_json
-import numpy
-import os
+from keras.models import load_model
 import matplotlib.pyplot as plt
-'''
-(X_train, y_train),(X_test, y_test) = mnist.load_data()
-print (X_train.shape)
-print (y_train)
-y_train = np_utils.to_categorical(y_train)
-print (y_train.shape)
-print (y_train)
-'''
 
 def show_mnistSampleData(X_train):
     plt.subplot(221)
@@ -41,36 +31,38 @@ def get_model(num_class, input_shape):
     model.add(Dense(num_class, activation = 'softmax'))
     #compile model
     model.compile(optimizer = 'adam', loss = 'categorical_crossentropy', metrics = ['accuracy'])
+    print (model.summary())
     return model
 
-def store_model(model):
-    model_json = model.to_json()
-    with open( 'model_json', 'w') as json_file:
-        json_file.write(model_json)
-    model.save_weigths('D:\\Soumya\\Python Scripts\\model.h5')
-
-
+def train_store_model(model, X_train, y_train, X_test, y_test):
+    batch_size = 200
+    model.fit( X_train, y_train, epochs = 1, batch_size = batch_size, verbose = 1, validation_data = (X_test, y_test))
+    score = model.evaluate( X_test, y_test, verbose = 2)
+    print ("test accuracy = ", score[1])
+    model.save('D:\\gitHub\\Machine-Learning\\model.h5')
+    model.save_weights('D:\\gitHub\\Machine-Learning\\model_weights.h5')
+    
+    
+def load_trainedModel(model_path, model_weightsPath):
+    model1 = load_model(model_path)
+    model1.load_weights(model_weightsPath)
+    print (model1.summary())
 
 (X_train, y_train),(X_test, y_test) = mnist.load_data()
-#show dataset
-#show_mnistSampleData(X_train)
-
-batch_size = 200
-
-input_shape = (28, 28, 1)
+show_mnistSampleData(X_train)
 X_train = X_train.reshape( X_train.shape[0], 28, 28, 1).astype('float32')
 X_test = X_test.reshape( X_test.shape[0], 28, 28, 1).astype('float32')
 X_train = X_train/255
 X_test = X_test/255
 y_train = np_utils.to_categorical( y_train)
 y_test = np_utils.to_categorical( y_test)
+    
 num_class = y_train.shape[1]
+input_shape = (28, 28, 1)
 
+model_path = 'D:\\gitHub\\Machine-Learning\\model.h5'
+model_weightsPath = 'D:\\gitHub\\Machine-Learning\\model_weights.h5'
+load_trainedModel(model_path, model_weightsPath)
 
-model = get_model(num_class, input_shape)
-print (model.summary())
-model.fit( X_train, y_train, epochs = 1, batch_size = batch_size, verbose = 1, validation_data = (X_test, y_test))
-score = model.evaluate( X_test, y_test, verbose = 2)
-print ("test accuracy = ", score[1])
-#store_model(model)
-model.save_weights('D:\\Soumya\\Python Scripts\\mnist_convnet_model\\model.h5')
+#model = get_model(num_class, input_shape)
+#train_store_model(model, X_train, y_train, X_test, y_test)
