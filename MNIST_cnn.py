@@ -47,6 +47,7 @@ def load_trainedModel(model_path, model_weightsPath):
     model1 = load_model(model_path)
     model1.load_weights(model_weightsPath)
     print (model1.summary())
+    return model1
 
 (X_train, y_train),(X_test, y_test) = mnist.load_data()
 show_mnistSampleData(X_train)
@@ -62,7 +63,9 @@ input_shape = (28, 28, 1)
 
 model_path = 'D:\\gitHub\\Machine-Learning\\model.h5'
 model_weightsPath = 'D:\\gitHub\\Machine-Learning\\model_weights.h5'
-load_trainedModel(model_path, model_weightsPath)
-
+model1 = load_trainedModel(model_path, model_weightsPath)
+model1.compile(optimizer = 'adam', loss = 'categorical_crossentropy', metrics = ['accuracy'])
+score = model1.evaluate( X_test, y_test, verbose = 2)
+print (score[1])
 #model = get_model(num_class, input_shape)
 #train_store_model(model, X_train, y_train, X_test, y_test)
