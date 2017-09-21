@@ -1,3 +1,4 @@
+#http://www.codesofinterest.com/2017/08/bottleneck-features-multi-class-classification-keras.html
 from keras.applications.inception_v3 import InceptionV3
 from keras.preprocessing.image import ImageDataGenerator
 from keras.utils.np_utils import to_categorical
