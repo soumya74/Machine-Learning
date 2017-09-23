@@ -107,7 +107,7 @@ bottleneck_feature_train_file = "D:\\gitHub\\Machine-Learning\\bottleneck_featur
 bottlneck_features_validation_file = "D:\\gitHub\\Machine-Learning\\bottleneck_features_validation.npy"
 trained_top_model_file = "D:\\gitHub\\Machine-Learning\\top_model.h5"
 trained_top_modelWeights_file = "D:\\gitHub\\Machine-Learning\\top_model_weights.h5"
-batch_size = 10
+batch_size = 20
 topLevel_model_epochs = 10
 
 

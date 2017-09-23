@@ -15,8 +15,9 @@ folder_path = "D:\\17flowers\\Data_Augmentation"
 filecount = 0
 for filename in os.listdir(folder_path):
     if filename.endswith(".jpg"):
-        print (filename)
-        img = load_img(filename)
+        filepath = os.path.abspath(folder_path) + "\\" +filename
+        print (filepath)
+        img = load_img(filepath)
         x = img_to_array(img)
         x = x.reshape( (1,) + x.shape)
         
