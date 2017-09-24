@@ -41,8 +41,8 @@ target_names = np.unique(labels)
 le = LabelEncoder()
 le_labels = le.fit_transform(labels)
 
-features_path = "D:\\gitHub\\Machine-Learning\\features_file.h5"
-labels_path = "D:\\gitHub\\Machine-Learning\\labels_file.h5"
+features_path = "D:\\gitHub\\Machine-Learning\\Flower 17 Training\\features_file.h5"
+labels_path = "D:\\gitHub\\Machine-Learning\\Flower 17 Training\\labels_file.h5"
 
 file1 = h5py.File(features_path, 'w')
 file2 = h5py.File(labels_path, 'w')
