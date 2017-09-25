@@ -32,3 +32,6 @@ To restart Spyder
 ================== ENJOY ==================
 Reference : https://www.youtube.com/watch?v=0jCPho6x0RY&t=35s
 =================SSG_GITHUB================
+
+Install Opencv2
+1. --> conda install --channel https://conda.anaconda.org/menpo opencv3
