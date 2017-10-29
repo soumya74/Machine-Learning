@@ -22,6 +22,9 @@ How to install Keras and TensorFlow in Anaconda3(Windows):
 	--> pip install keras
 10. Once installation complete open spyder from current command Prompt.
 
+11. To Install TextBlob
+	--> conda install -c conda-forge textblob
+
 ================== ENJOY ==================
 To restart Spyder
 1. Open Anaconda Prompt
