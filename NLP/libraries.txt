@@ -5,3 +5,6 @@
   http://textblob.readthedocs.io/en/dev/quickstart.html
 
 3. NLTK Library
+
+4. Spacy
+  https://spacy.io/
