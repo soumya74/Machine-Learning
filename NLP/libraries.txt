@@ -1,0 +1,7 @@
+1. Pattern Library
+  https://www.clips.uantwerpen.be/pages/pattern-en
+
+2. TextBlob Library
+  http://textblob.readthedocs.io/en/dev/quickstart.html
+
+3. NLTK Library
